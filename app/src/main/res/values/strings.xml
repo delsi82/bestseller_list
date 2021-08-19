@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BestsellerList</string>
+    <string name="filter_books_type">Seleziona categoria</string>
+</resources>
