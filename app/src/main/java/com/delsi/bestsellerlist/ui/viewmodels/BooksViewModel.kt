@@ -1,7 +1,8 @@
-package com.delsi.bestsellerlist.ui.books
+package com.delsi.bestsellerlist.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.delsi.bestsellerlist.data.Resource
 import com.delsi.bestsellerlist.data.repositories.BookRepository
 import com.delsi.bestsellerlist.data.vo.BestsellerType
@@ -26,7 +27,7 @@ class BooksViewModel @Inject constructor(private val repository: BookRepository)
     val books: StateFlow<Resource<List<Book>?>> = _books
 
 
-    init {
+    fun getTypesOfBestseller() {
         viewModelScope.launch {
             repository.getBestSellerTypes().catch { e ->
                 _typeOfBooks.value = Resource.error(e.message ?: "Exception")
